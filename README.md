@@ -1,5 +1,4 @@
 # Nextflow_QC
-# Nextflow_Trim
 
 # Genomics Workflow with Nextflow
 

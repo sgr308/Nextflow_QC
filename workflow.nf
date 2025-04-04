@@ -38,7 +38,7 @@ process trimmomatic {
 
     script:
     """
-    java -jar /home/ubuntu/TEST/01_tools/Trimmomatic-0.39/trimmomatic-0.39.jar PE \\
+    java -jar trimmomatic-0.39.jar PE \\
         -threads 15 \\
         ${forward} ${reverse} \\
         ${pair_id}_trimmed_1.fastq.gz ${pair_id}_forward_unpaired.fastq.gz \\

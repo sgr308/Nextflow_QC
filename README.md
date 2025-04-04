@@ -28,7 +28,6 @@ To use this workflow, ensure you have the following installed:
 ### Input Requirements
 
 1. **Raw Reads**: Paired-end fastq.gz files located in the directory specified by `params.reads`.
-2. **Reference Genome**: A FASTA file located in the directory specified by `params.ref`.
 
 ### Parameters
 

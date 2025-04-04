@@ -63,15 +63,30 @@ process fastqc_trimmed {
     """
 }
 
+// Process 4: End point
+process end_point {
+    
+    input:
+    path fastqc_raw_results
+    path fastqc_trimmed_results
+
+    script:
+    """
+    echo "Logical endpoint."
+    """
+}
+
 // Workflow definition
 workflow {
     // Step 1: Run FastQC on raw reads
-    fastqc(paired_reads)
+    fastqc_raw_results = fastqc(paired_reads)
 
     // Step 2: Run Trimmomatic
-    trimmed_reads = trimmomatic(paired_reads)
+    trimmomatic(paired_reads)
 
     // Step 3: Run FastQC on trimmed reads
-    fastqc_trimmed(trimmed_reads)
+    fastqc_trimmed_results = fastqc_trimmed(trimmomatic.out)
 
+    // Step 4: Final output
+    end_point(fastqc_raw_results, fastqc_trimmed_results)
 }
